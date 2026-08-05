@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sea Life App</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+body{
+    margin:0;
+   font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg,#84c99b,#aecadd);
+}
+
+/* MAIN */
+.container{
+    display:flex;
+}
+
+/* LEFT SIDEBAR */
+.content{
+    background: var(--card-glass);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  height: fit-content;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.04);
+  width: 300px;
+  height: 600px;
+  padding: 10px;
+  margin-top: 100px;
+}
+.content-header{
+   position: relative;
+  background: linear-gradient(135deg, var(--mid-4), var(--deep-3) 75%);
+  padding: 22px 24px 16px;
+}
+.content-eyebrow{
+   font-family:'Space Mono', monospace;
+  font-size: 0.66rem; letter-spacing: 2.5px;
+  color: var(--bio-cyan); text-transform: uppercase;
+}
+.img{
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    border:3px solid #00aaff;
+    display:inline;
+   margin-left: 70px;
+}
+
+h1{
+    text-align:center;
+    font-size:45px;
+}
+
+h3{
+    font-size:20px;
+    display:flex;
+    gap:8px;
+    align-items:center;
+    margin-top: 10px;
+}
+
+/* RIGHT SIDE */
+.website{
+    flex:1;
+    padding:30px;       
+}
+
+.h1{
+    text-align:center;
+    font-size:50px;
+    color:#0077be;
+}
+
+.salom{
+    width:100%;
+    max-width:900px;
+    border-radius:15px;
+    display:block;
+    margin:auto;    
+}
+
+/* INPUT */
+#animalInput{
+    width:60%;
+    padding:15px;
+    font-size:18px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    margin:20px auto;
+    display:block;
+}
+button{
+    display:block;
+    margin:10px auto;
+    padding:12px 30px;
+    border:none;
+    border-radius:10px;
+    background:#00aaff;
+    color:white;
+    cursor:pointer;
+}
+button:hover{
+    background:#0077be;
+}
+#resultTitle{
+    text-align:center;
+    font-size:30px;
+    color:#0077be;
+    margin-top:30px;
+}
+
+#resultText{
+    width:70%;
+    margin:20px auto;
+    padding:25px;
+    background:white;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    line-height:1.8;
+    border-left:6px solid #00aaff;
+}
+
+#resultImg{
+    width:300px;
+    display:block;
+    margin:20px auto;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+/* sun and ligght */
+  :root {
+    --day-sky-1: #7ec8e3;
+    --day-sky-2: #ffe4a1;
+    --night-sky-1: #0b1026;
+    --night-sky-2: #1b2a4a;
+    --sun-color: #ffb703;
+    --moon-color: #e2e8f0;
+    --track-shadow: rgba(0,0,0,0.25);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: radial-gradient(circle at 30% 20%, #2b2f45, #14162a 70%);
+    transition: background 0.6s ease;
+  }
+
+  body.day {
+    background: radial-gradient(circle at 30% 20%, #bfe9ff, #7ec8e3 70%);
+  }
+
+  .stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .label {
+    font-size: 15px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #f5f5f5;
+    opacity: 0.85;
+    transition: color 0.6s ease;
+  }
+
+  body.day .label { color: #14162a; }
+
+  .toggle {
+    --w: 140px;
+    --h: 64px;
+    --pad: 6px;
+    width: var(--w);
+    height: var(--h);
+    border: none;
+    border-radius: 999px;
+    position: relative;
+    cursor: pointer;
+    padding: 0;
+    background: linear-gradient(135deg, var(--night-sky-1), var(--night-sky-2));
+    box-shadow: inset 0 2px 6px var(--track-shadow), 0 6px 18px rgba(0,0,0,0.35);
+    transition: background 0.6s ease;
+    overflow: hidden;
+  }
+.toggle.day {
+    background: linear-gradient(135deg, var(--day-sky-1), var(--day-sky-2));
+  }
+ .stars {
+    position: absolute;
+    inset: 0;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+  }
+  .toggle.day .stars { opacity: 0; }
+  .stars span {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #fff;
+    border-radius: 50%;
+  }
+
+  .clouds {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  .toggle.day .clouds { opacity: 1; }
+  .clouds span {
+    position: absolute;
+    background: rgba(255,255,255,0.8);
+    border-radius: 999px;
+  }
+
+  .knob {
+    position: absolute;
+    top: var(--pad);
+    left: var(--pad);
+    width: calc(var(--h) - var(--pad) * 2);
+    height: calc(var(--h) - var(--pad) * 2);
+    border-radius: 50%;
+    background: var(--moon-color);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.4), inset -4px -4px 0 rgba(0,0,0,0.08);
+    transition: transform 0.5s cubic-bezier(.68,-0.4,.27,1.4), background 0.5s ease, box-shadow 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .toggle.day .knob {
+    transform: translateX(calc(var(--w) - var(--h)));
+    background: var(--sun-color);
+    box-shadow: 0 0 18px 4px rgba(255,183,3,0.7), inset -3px -3px 0 rgba(255,255,255,0.3);
+  }
+
+  .knob svg {
+    width: 60%;
+    height: 60%;
+    transition: transform 0.5s ease;
+  }
+
+  .toggle:not(.day) .knob svg.moon-icon { opacity: 1; transform: rotate(0deg); }
+  .toggle:not(.day) .knob svg.sun-icon { opacity: 0; position: absolute; }
+  .toggle.day .knob svg.sun-icon { opacity: 1; transform: rotate(90deg); }
+  .toggle.day .knob svg.moon-icon { opacity: 0; position: absolute; }
+
+  .knob svg { position: absolute; opacity: 0; }
+  .knob svg.moon-icon { opacity: 1; }
+</style>
+  
+
+</head>
+
+<body>
+
+<div class="container">
+<div class="content">
+
+<h1>About me</h1>
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk8CsmxTLc96qK_UhXhwj9FlX_WEpF8TSs887zv-lXXQ&s=10" class="img">
+
+<h3>👤 Name: Fazliddin</h3>
+<h3>👤 Surename: Eshmamatov</h3>
+<h3>🎂 Age: 13 years old</h3>
+<h3>🚹 Gender: Male</h3>
+<h3>🏠 City: Surkhandarya</h3>
+<h3>🇺🇿 Country: Uzbekistan</h3>
+
+</div>
+<div class="website">
+
+<h1 class="h1">SeaLife 🌊</h1>
+
+<img class="salom" src="https://cdn.prod.website-files.com/621f789c295b777169edc867/621f996383d8c45c7b8d1d73_Sea-Life-Collection-Header.jpg">
+
+<input id="animalInput" placeholder="Enter animal name...">
+<button onclick="searchAnimal()">Search</button>
+
+<h2 id="resultTitle"></h2>
+<img id="resultImg" style="display:none;">
+<p id="resultText"></p>
+
+</div>
+  <div class="stage">
+    <div class="label" id="stateLabel">Tun</div>
+    <button class="toggle" id="toggleBtn" aria-pressed="false" aria-label="Kun va tun rejimini almashtirish">
+      <div class="stars" id="stars"></div>
+      <div class="clouds">
+        <span style="width:34px;height:12px;top:14px;left:20px;"></span>
+        <span style="width:22px;height:9px;top:40px;left:12px;"></span>
+      </div>
+      <div class="knob">
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" fill="#475569"/>
+        </svg>
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="5" fill="#f59e0b"/>
+          <g stroke="#f59e0b" stroke-width="2" stroke-linecap="round">
+            <line x1="12" y1="1" x2="12" y2="4"/>
+            <line x1="12" y1="20" x2="12" y2="23"/>
+            <line x1="1" y1="12" x2="4" y2="12"/>
+            <line x1="20" y1="12" x2="23" y2="12"/>
+            <line x1="4.2" y1="4.2" x2="6.3" y2="6.3"/>
+            <line x1="17.7" y1="17.7" x2="19.8" y2="19.8"/>
+            <line x1="4.2" y1="19.8" x2="6.3" y2="17.7"/>
+            <line x1="17.7" y1="6.3" x2="19.8" y2="4.2"/>
+          </g>
+        </svg>
+      </div>
+    </button>
+
+</div>
+
+
+
+<script src="/next.js"></script>
+</body>
+</html>
+  </div>

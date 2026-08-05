@@ -1,0 +1,538 @@
+ *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    width:100%;
+    min-height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(
+        160deg,
+        #001426,
+        #012840,
+        #014d64,
+        #006994
+    );
+
+    position:relative;
+}
+
+/* ===========================
+   BACKGROUND
+=========================== */
+
+body::before{
+    content:"";
+    position:absolute;
+    width:800px;
+    height:800px;
+    background:rgba(255,255,255,.05);
+    border-radius:50%;
+    left:-250px;
+    top:-250px;
+    filter:blur(5px);
+}
+
+body::after{
+    content:"";
+    position:absolute;
+    width:600px;
+    height:600px;
+    background:rgba(0,255,255,.04);
+    border-radius:50%;
+    right:-180px;
+    bottom:-180px;
+}
+
+/* ===========================
+   CONTAINER
+=========================== */
+
+.container{
+    width:90%;
+    max-width:1400px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:70px;
+    z-index:10;
+}
+
+/* ===========================
+   LEFT
+=========================== */
+
+.left{
+    width:55%;
+    color:white;
+}
+.logo{
+    font-size:34px;
+    font-weight:700;
+    color:#7fffd4;
+    margin-bottom:45px;
+}
+.left h4{
+    color:#7fffd4;
+    letter-spacing:3px;
+    margin-bottom:18px;
+    font-weight:500;
+}
+.left h1{
+    font-size:64px;
+    line-height:75px;
+    margin-bottom:30px;
+}
+.left h1 span{
+    color:#69e6ff;
+}
+.left p{
+    width:90%;
+    line-height:34px;
+    font-size:18px;
+    color:#d8f5ff;
+    margin-bottom:60px;
+}
+/* ===========================
+   INFO CARDS
+=========================== */
+.cards{
+    display:flex;
+    gap:25px;
+}
+.card{
+    width:180px;
+    padding:28px;
+    border-radius:20px;
+    backdrop-filter:blur(20px);
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+    transition:.35s;
+}
+.card:hover{
+    transform:translateY(-10px);
+    background:rgba(255,255,255,.15);
+}
+.card i{
+    font-size:42px;
+    color:#7fffd4;
+    margin-bottom:18px;
+}
+.card h3{
+    font-size:34px;
+    color:white;
+    margin-bottom:8px;
+}
+.card p{
+    margin:0;
+    width:100%;
+    font-size:15px;
+    color:#d0f7ff;
+    line-height:24px;
+}
+/* ===========================
+   RIGHT
+=========================== */
+
+.right{
+    width:45%;
+    display:flex;
+    justify-content:center;
+}
+/* ==========================
+   LOGIN BOX
+=========================== */
+
+.login-box{
+    width:470px;
+    padding:45px;
+    border-radius:28px;
+    background:rgba(255,255,255,.13);
+    backdrop-filter:blur(35px);
+    border:1px solid rgba(255,255,255,.25);
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.35);
+
+}
+
+/* ===========================
+   TABS
+=========================== */
+
+.tabs{
+    display:flex;
+    background:rgba(255,255,255,.1);
+    padding:7px;
+    border-radius:50px;
+    margin-bottom:35px;
+}
+.tabs button{
+    flex:1;
+    border:none;
+    padding:14px;
+    cursor:pointer;
+    border-radius:40px;
+    background:none;
+    color:white;
+    font-size:15px;
+    transition:.3s;
+}
+.tabs button.active{
+    background:#00d4ff;
+    color:#003049;
+    font-weight:600;
+}
+/* ===========================
+   LOGIN TEXT
+=========================== */
+
+.login-box h2{
+    color:white;
+    font-size:34px;
+    margin-bottom:10px;
+}
+.login-box p{
+    color:#dffcff;
+    margin-bottom:35px;
+    line-height:28px;
+}
+/* ===========================
+   INPUTS
+=========================== */
+
+.input-box{
+    margin-bottom:22px;
+}
+.input-box label{
+    display:block;
+    color:white;
+    margin-bottom:10px;
+    font-size:15px;
+}
+.input{
+    display:flex;
+    align-items:center;
+    background:rgba(255,255,255,.12);
+    border-radius:15px;
+    padding:0 18px;
+    border:1px solid rgba(255,255,255,.15);
+}
+.input i{
+    color:#7fffd4;
+    font-size:20px;
+}
+.input input{
+
+    flex:1;
+    border:none;
+    background:none;
+    outline:none;
+    padding:18px 14px;
+    color:white;
+    font-size:16px;
+}
+
+.input input::placeholder{
+
+    color:#c9f8ff;
+}
+
+.eye{
+ cursor:pointer;
+}
+.options{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:25px 0;
+    color:white;
+    font-size:14px;
+}
+
+.options label{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    cursor:pointer;
+}
+
+.options input{
+    accent-color:#00d4ff;
+}
+
+.options a{
+    color:#7fffd4;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.options a:hover{
+    color:#ffffff;
+}
+
+/* ===========================
+   LOGIN BUTTON
+=========================== */
+
+.login-btn{
+    width:100%;
+    padding:17px;
+    border:none;
+    border-radius:15px;
+    background:linear-gradient(135deg,#00d4ff,#00ffa3);
+    color:#003049;
+    font-size:18px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.35s;
+    box-shadow:0 10px 25px rgba(0,212,255,.35);
+}
+
+.login-btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 20px 40px rgba(0,212,255,.45);
+}
+
+/* ===========================
+   BOTTOM
+=========================== */
+
+.bottom{
+    margin-top:30px;
+    text-align:center;
+    color:white;
+}
+
+.bottom a{
+    color:#7fffd4;
+    text-decoration:none;
+    font-weight:600;
+}
+
+/* ===========================
+   BUBBLES
+=========================== */
+
+.bubbles{
+    position:absolute;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    top:0;
+    left:0;
+    pointer-events:none;
+}
+
+.bubbles span{
+    position:absolute;
+    bottom:-120px;
+    width:25px;
+    height:25px;
+    border-radius:50%;
+    background:rgba(255,255,255,.18);
+    animation:float 18s linear infinite;
+}
+
+.bubbles span:nth-child(1){
+    left:5%;
+    width:18px;
+    height:18px;
+    animation-duration:14s;
+}
+
+.bubbles span:nth-child(2){
+    left:15%;
+    animation-duration:18s;
+}
+
+.bubbles span:nth-child(3){
+    left:28%;
+    width:35px;
+    height:35px;
+    animation-duration:22s;
+}
+
+.bubbles span:nth-child(4){
+    left:40%;
+    animation-duration:16s;
+}
+
+.bubbles span:nth-child(5){
+    left:55%;
+    width:22px;
+    height:22px;
+}
+
+.bubbles span:nth-child(6){
+    left:68%;
+    animation-duration:24s;
+}
+
+.bubbles span:nth-child(7){
+    left:80%;
+    width:40px;
+    height:40px;
+}
+
+.bubbles span:nth-child(8){
+    left:88%;
+    animation-duration:17s;
+}
+
+.bubbles span:nth-child(9){
+    left:95%;
+    width:18px;
+    height:18px;
+}
+
+.bubbles span:nth-child(10){
+    left:50%;
+    width:28px;
+    height:28px;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0) scale(.3);
+        opacity:0;
+    }
+
+    20%{
+        opacity:.8;
+    }
+
+    100%{
+        transform:translateY(-110vh) scale(1);
+        opacity:0;
+    }
+}
+
+/* ===========================
+   CARD ANIMATION
+=========================== */
+
+.card{
+    animation:upDown 5s ease-in-out infinite;
+}
+
+.card:nth-child(2){
+    animation-delay:.6s;
+}
+
+.card:nth-child(3){
+    animation-delay:1.2s;
+}
+
+@keyframes upDown{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+}
+
+/* ===========================
+   LOGIN BOX
+=========================== */
+
+.login-box{
+    animation:fadeIn .9s ease;
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:1100px){
+
+    .container{
+        flex-direction:column;
+        padding:50px 20px;
+    }
+
+    body{
+        overflow:auto;
+    }
+
+    .left,
+    .right{
+        width:100%;
+        text-align:center;
+    }
+
+    .left p{
+        width:100%;
+    }
+
+    .cards{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .left h1{
+        font-size:42px;
+        line-height:52px;
+    }
+
+    .login-box{
+        width:100%;
+        padding:30px;
+    }
+
+    .cards{
+        gap:15px;
+    }
+
+    .card{
+        width:160px;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .left h1{
+        font-size:34px;
+        line-height:44px;
+    }
+
+    .logo{
+        font-size:28px;
+    }
+
+    .card{
+        width:100%;
+    }
+
+    .login-box{
+        padding:25px;
+    }
+
+}

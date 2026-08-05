@@ -1,0 +1,375 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sea Life | Login</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+         <link rel="stylesheet" href="/style.css">
+   
+</head>
+<body>
+
+<!-- Bubble Animation -->
+<div class="bubbles">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<div class="container">
+
+    <!-- LEFT SIDE -->
+    <div class="left">
+
+        <div class="logo">
+            🌊 SEA LIFE
+        </div>
+
+        <h4>DISCOVER THE OCEAN</h4>
+
+        <h1>
+            Explore the <span>Beautiful</span><br>
+            World of Sea Animals.
+        </h1>
+
+        <p>
+            Dive into the underwater world and learn fascinating
+            facts about marine creatures, coral reefs, turtles,
+            whales, dolphins and many more amazing species.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <i class="ri-fish-line"></i>
+                <h3>50+</h3>
+                <p>Sea Animals</p>
+            </div>
+
+            <div class="card">
+                <i class="ri-image-line"></i>
+                <h3>HD</h3>
+                <p>Images</p>
+            </div>
+
+            <div class="card">
+                <i class="ri-book-open-line"></i>
+                <h3>100%</h3>
+                <p>Learning</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right">
+
+        <div class="login-box">
+
+            <div class="tabs">
+                <button class="active">
+                    Login
+                </button>
+
+                <button>
+                    Register
+                </button>
+            </div>
+
+            <h2>Welcome Back 🐋</h2>
+
+            <p>
+                Sign in to continue exploring the amazing ocean.
+            </p>
+
+            <form>
+
+                <div class="input-box">
+                    <label>Email</label>
+
+                    <div class="input">
+                        <i class="ri-mail-line"></i>
+
+                        <input
+                            type="email"
+                            placeholder="example@email.com"
+                        >
+                    </div>
+                </div>
+
+                <div class="input-box">
+                    <label>Password</label>
+
+                    <div class="input">
+
+                        <i class="ri-lock-line"></i>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                        >
+
+                        <i
+                            class="ri-eye-line eye"
+                            id="eye">
+                        </i>
+
+                    </div>
+
+                </div>
+
+                <div class="options">
+
+                    <label>
+                        <input type="checkbox">
+                        Remember me
+                    </label>
+
+                    <a href="#">
+                        Forgot Password?
+                    </a>
+
+                </div>
+
+                <button class="login-btn">
+                    🌊 Dive In
+                </button>
+
+            </form>
+
+            <div class="bottom">
+
+                Don't have an account?
+
+                <a href="#">
+                    Create One
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+ <script>
+    // ============================
+// PASSWORD SHOW / HIDE
+// ============================
+
+const password = document.getElementById("password");
+const eye = document.getElementById("eye");
+
+eye.addEventListener("click", () => {
+
+    if (password.type === "password") {
+
+        password.type = "text";
+        eye.classList.remove("ri-eye-line");
+        eye.classList.add("ri-eye-off-line");
+
+    } else {
+
+        password.type = "password";
+        eye.classList.remove("ri-eye-off-line");
+        eye.classList.add("ri-eye-line");
+
+    }
+
+});
+
+
+// ============================
+// LOGIN
+// ============================
+
+const form = document.querySelector("form");
+
+form.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const email = form.querySelector('input[type="email"]').value.trim();
+    const pass = document.getElementById("password").value.trim();
+
+    if(email === "" || pass === ""){
+
+        alert("⚠️ Please fill in all fields.");
+
+        return;
+
+    }
+
+    alert("🌊 Welcome to Sea Life!");
+
+});
+
+
+// ============================
+// INPUT EFFECT
+// ============================
+
+const inputs = document.querySelectorAll(".input input");
+
+inputs.forEach(input=>{
+
+    input.addEventListener("focus",()=>{
+
+        input.parentElement.style.borderColor="#00d4ff";
+        input.parentElement.style.boxShadow="0 0 20px rgba(0,212,255,.4)";
+
+    });
+
+    input.addEventListener("blur",()=>{
+
+        input.parentElement.style.borderColor="rgba(255,255,255,.15)";
+        input.parentElement.style.boxShadow="none";
+
+    });
+
+});
+
+
+// ============================
+// RANDOM BUBBLE SPEED
+// ============================
+
+const bubbles = document.querySelectorAll(".bubbles span");
+
+bubbles.forEach(bubble=>{
+
+    let size = Math.random()*30+10;
+
+    bubble.style.width=size+"px";
+    bubble.style.height=size+"px";
+
+    bubble.style.left=Math.random()*100+"%";
+
+    bubble.style.animationDuration=(Math.random()*10+12)+"s";
+
+    bubble.style.animationDelay=(Math.random()*5)+"s";
+
+});
+
+
+// ============================
+// CARD HOVER
+// ============================
+
+const cards=document.querySelectorAll(".card");
+
+cards.forEach(card=>{
+
+    card.addEventListener("mouseenter",()=>{
+
+        card.style.transform="translateY(-15px) scale(1.05)";
+
+    });
+
+    card.addEventListener("mouseleave",()=>{
+
+        card.style.transform="translateY(0) scale(1)";
+
+    });
+
+});
+
+
+// ============================
+// BUTTON RIPPLE EFFECT
+// ============================
+
+const btn=document.querySelector(".login-btn");
+
+btn.addEventListener("click",function(e){
+
+    const circle=document.createElement("span");
+
+    const x=e.offsetX;
+    const y=e.offsetY;
+
+    circle.style.left=x+"px";
+    circle.style.top=y+"px";
+
+    circle.style.position="absolute";
+    circle.style.width="20px";
+    circle.style.height="20px";
+    circle.style.background="rgba(255,255,255,.5)";
+    circle.style.borderRadius="50%";
+    circle.style.transform="translate(-50%,-50%)";
+    circle.style.animation="ripple .6s linear";
+
+    this.appendChild(circle);
+
+    setTimeout(()=>{
+        circle.remove();
+    },600);
+
+});
+
+
+// ============================
+// RIPPLE STYLE
+// ============================
+
+const style=document.createElement("style");
+
+style.innerHTML=`
+.login-btn{
+position:relative;
+overflow:hidden;
+}
+
+@keyframes ripple{
+
+0%{
+transform:translate(-50%,-50%) scale(0);
+opacity:1;
+}
+
+100%{
+transform:translate(-50%,-50%) scale(10);
+opacity:0;
+}
+
+}
+`;
+
+document.head.appendChild(style);
+
+const Loginform = document.querySelector("form");
+
+form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const email = form.querySelector('input[type="email"]').value.trim();
+    const pass = document.getElementById("password").value.trim();
+
+    if(email === "" || pass === ""){
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    window.location.href = "index.html";
+});
+</script>
+
+</body>
+</html>
